@@ -31,14 +31,6 @@ public class QRCodeFoundActivity extends AppCompatActivity {
         webSettings.setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
 
-//        webView.setWebViewClient(new WebViewClient(){       //for redirecting purposes
-//            @Override
-//            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-////                view.loadUrl(request.toString());
-//                return false;
-//            }
-//        });
-
         if(isValidURL(qrResult)){
             tvQR.setVisibility(View.GONE);
             webView.loadUrl(qrResult);
