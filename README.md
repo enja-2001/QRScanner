@@ -8,4 +8,5 @@ QRScanner is an android app that can scan and decode any qr code very fast.
 
 ## Libraries used
 - CameraX
-- Zxing
+- ZXing
+- Android Jetpack
