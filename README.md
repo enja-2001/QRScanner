@@ -1,7 +1,7 @@
 # <div align = "center">QRScanner</div>
 
 <p align="center">
-  <img src="/QRScanner.gif?raw=true" alt="GIF"/>
+  <img src="/QRScanner.gif?raw=true" width="210" height="400" alt="GIF"/>
 </p>
 
 An android app that can auto-detect and decode any qr code very fast using android jetpack libraries.
