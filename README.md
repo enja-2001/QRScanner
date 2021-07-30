@@ -15,3 +15,5 @@ An android app that can auto-detect and decode any qr code very fast using andro
 - ZXing
 - [Material](https://github.com/rey5137/material)
 - [Loading Animation](https://github.com/yankai-victor/Loading)
+
+### [Get the full source code(.zip) and .apk file here :rocket:](https://github.com/enja-2001/QRScanner/releases/tag/v1.0)
