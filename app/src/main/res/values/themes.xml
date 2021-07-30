@@ -19,10 +19,4 @@
         <item name="lpd_travelDuration">3000</item>
     </style>
 
-<!--    &lt;!&ndash; BookLoading &ndash;&gt;-->
-<!--    <style name="BookLoading">-->
-<!--        <item name="book_loading_background">@color/purple_500</item>-->
-<!--        <item name="book_loading_book">3000</item>-->
-<!--    </style>-->
-
 </resources>
