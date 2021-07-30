@@ -10,12 +10,16 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
 
+import com.enja.qrscanner.Helper.MyWebClient;
+import com.victor.loading.book.BookLoading;
+
 import java.net.URL;
 
 public class QRCodeFoundActivity extends AppCompatActivity {
 
     TextView tvQR;
     WebView webView;
+    BookLoading progressView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,18 +28,31 @@ public class QRCodeFoundActivity extends AppCompatActivity {
 
         String qrResult = getIntent().getStringExtra("qr");
 
-        tvQR=findViewById(R.id.tvQR);
+        initViews();
+        configureWebView();
+        checkQRResult(qrResult);
+    }
 
+    private void initViews(){
+        tvQR=findViewById(R.id.tvQR);
         webView=findViewById(R.id.webView);
+        progressView=findViewById(R.id.bookLoading);
+        progressView.setVisibility(View.GONE);
+    }
+
+    private void configureWebView(){
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        webView.setWebViewClient(new WebViewClient());
+        webView.setWebViewClient(new MyWebClient(progressView));
+    }
 
+    private void checkQRResult(String qrResult){
         if(isValidURL(qrResult)){
             tvQR.setVisibility(View.GONE);
             webView.loadUrl(qrResult);
         }
         else{
+            progressView.setVisibility(View.GONE);
             webView.setVisibility(View.GONE);
             tvQR.setText(""+qrResult);
         }

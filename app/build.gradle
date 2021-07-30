@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
 }
+repositories {
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+}
 
 android {
     compileSdkVersion 30
@@ -46,4 +49,7 @@ dependencies {
     //ZXing
     implementation 'com.google.zxing:core:3.3.0'
 
+    //Progress bar
+    implementation 'com.github.rey5137:material:1.2.1.6-SNAPSHOT'
+    implementation 'com.victor:lib:1.0.4'
 }

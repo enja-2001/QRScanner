@@ -1,4 +1,4 @@
-package com.enja.qrscanner.ViewModel;
+package com.enja.qrscanner.Helper;
 
 import android.content.Context;
 import android.content.Intent;

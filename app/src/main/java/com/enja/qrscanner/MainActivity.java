@@ -16,16 +16,15 @@ import android.util.Size;
 import android.view.View;
 import android.widget.Toast;
 
-import com.enja.qrscanner.ViewModel.ImageAnalyser;
+import com.enja.qrscanner.Helper.ImageAnalyser;
 import com.google.common.util.concurrent.ListenableFuture;
-
-import static android.view.View.SYSTEM_UI_FLAG_FULLSCREEN;
-import static android.view.View.SYSTEM_UI_FLAG_IMMERSIVE;
+import com.rey.material.widget.ProgressView;
 
 public class MainActivity extends AppCompatActivity {
 
     int REQUEST_CODE=100;
     private PreviewView previewView;
+    private ProgressView progressView;
     ProcessCameraProvider processCameraProvider;
     private ListenableFuture<ProcessCameraProvider> cameraProviderListenableFuture;
 
@@ -34,13 +33,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        previewView=findViewById(R.id.previewView);
-        cameraProviderListenableFuture=ProcessCameraProvider.getInstance(this);
-
+        initViews();
         requestCameraPermission();
-
     }
 
+    private void initViews(){
+        previewView=findViewById(R.id.previewView);
+        progressView=findViewById(R.id.progress_horizontal);
+        cameraProviderListenableFuture=ProcessCameraProvider.getInstance(this);
+    }
     private void startCamera() {
         cameraProviderListenableFuture.addListener(()->{
             try{
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if(hasFocus)
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | SYSTEM_UI_FLAG_IMMERSIVE);
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
     }
 
   @Override
